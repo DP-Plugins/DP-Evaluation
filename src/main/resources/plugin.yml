@@ -1,0 +1,10 @@
+name: DP-Evaluation
+version: 1.0.0
+main: com.darksoldier1404.dpev.Evaluation
+authors: [ DEAD_POOLIO_ ]
+api-version: 1.16
+depend:
+  - DPP-Core
+commands:
+  dpev:
+    aliases: [ 감정, evaluation ]
