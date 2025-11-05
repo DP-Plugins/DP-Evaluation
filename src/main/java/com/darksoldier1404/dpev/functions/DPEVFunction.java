@@ -93,7 +93,6 @@ public class DPEVFunction {
         if (price <= 0) {
             p.sendMessage("§c해당 아이템은 감정할 수 없습니다.");
         } else {
-            p.getInventory().removeItem(item);
             p.sendMessage("§a아이템 감정이 완료되었습니다. 가격: §e" + price + "원");
             ItemMeta meta = item.getItemMeta();
             List<String> lore = meta.hasLore() ? meta.getLore() : new ArrayList<>();
@@ -116,13 +115,12 @@ public class DPEVFunction {
 
     public static DInventory.PageItemSet findIteminInventory(ItemStack item) {
         DInventory inv = plugin.items;
-        AtomicReference<DInventory.PageItemSet> found = new AtomicReference<>(new DInventory.PageItemSet(0, 0, null));
-        inv.applyAllItemChanges((pi) -> {
+        for (DInventory.PageItemSet pi : inv.getAllPageItemSets()) {
             if (pi.getItem().isSimilar(item)) {
-                found.set(pi);
+                return pi;
             }
-        });
-        return found.get() != null ? found.get() : null;
+        }
+        return null;
     }
 
     public static void openSellGUI(Player p) {
