@@ -23,7 +23,7 @@ public class Evaluation extends DPlugin {
     public Evaluation() {
         super(false);
         plugin = this;
-        this.init();
+        init();
     }
 
     public static Evaluation getInstance() {
@@ -31,10 +31,10 @@ public class Evaluation extends DPlugin {
     }
 
     public void onEnable() {
-        PluginUtil.addPlugin(plugin, 27936);
+        PluginUtil.addPlugin(plugin, 28442);
         items = (new DInventory("감정 아이템 설정", 54, true, true, plugin)).deserialize(plugin.config);
-        this.getCommand("dpev").setExecutor((new DPEVCommand()).getBuilder());
-        this.getServer().getPluginManager().registerEvents(new DPEVEvent(), plugin);
+        getCommand("dpev").setExecutor((new DPEVCommand()).getBuilder());
+        getServer().getPluginManager().registerEvents(new DPEVEvent(), plugin);
     }
 
     public void onDisable() {
