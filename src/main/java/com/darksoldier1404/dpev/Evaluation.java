@@ -21,7 +21,7 @@ public class Evaluation extends DPlugin {
     public static final Map<UUID, Tuple<Integer, DInventory>> currentEdit = new HashMap();
 
     public Evaluation() {
-        super(false);
+        super(true);
         plugin = this;
         init();
     }
